@@ -13,6 +13,7 @@ var processWrapper=document.getElementsByClassName("process-wrapper")[0];
 var title=document.getElementsByClassName("title")[0];
 var subTitle=document.getElementsByClassName("subtitle")[0];
 var artist=document.getElementsByClassName("artist")[0];
+var cover=document.getElementsByClassName("cover")[0];
 var vData={
     "songs": [
         {
@@ -180,6 +181,7 @@ window.onload=function(){
         subTitle.innerHTML=vData.songs[0].alias[0];
     }
     artist.innerHTML=vData.songs[0].artists[0].name;
+    cover.style.backgroundImage="url("+vData.songs[0].album.picUrl+")";
     cdp.load();
     playPauseBtn.className="fa fa-play";
 
@@ -214,17 +216,16 @@ window.onload=function(){
     playPauseBtn.onclick=function () {
         if (cdp.paused){
             cdp.play();
+            cover.style.animationPlayState="running";
             playPauseBtn.className="fa fa-pause";
         }else{
             cdp.pause();
+            cover.style.animationPlayState="paused";
             playPauseBtn.className="fa fa-play";
         }
 
     };
 
-    pauseBtn.onclick=function () {
-        cdp.pause();
-    }
 
 };
 

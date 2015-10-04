@@ -1,0 +1,109 @@
+.process-wrapper{
+    height:2px;
+    background-color: #9d9d9d;
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.process-inner{
+    height:2px;
+    background-color: #3f3f3f;
+    width: 0;
+    transition-timing-function: linear;
+    -webkit-transition-timing-function: linear
+transition: width 0.5s;
+    -webkit-transition: width 0.5s;
+    position: relative;
+}
+.process-number{
+    font-size: 50px;
+}
+.process-inner .process-pointer{
+    content:"";
+    width:5px;
+    height: 5px;
+    background-color: #000000;
+    position: absolute;
+    right:0;
+    top:-50%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.process-p{
+    text-align: center;
+}
+#process-minute{
+    font-size: 50px;
+}
+#process-second{
+    font-size: 40px;
+}
+#process-milsecond{
+    font-size: 25px;
+    color:gray;
+}
+.play-ctrl{
+    text-align: center;
+    padding-top: 40px;
+}
+.song-meta{
+    text-align:center;
+    line-height: 2;
+}
+.title{
+    font-size: 35px;
+}
+.title:first-letter{
+    font-size: 60px;
+}
+.subtitle{
+    font-size: 10px;
+    color:gray;
+}
+.artist{
+    font-size:25px;
+
+}
+.artist:first-letter{
+    font-size:50px;
+}
+#ctrl-play-pause{
+    font-size: 30px;
+}
+.cover{
+    height: 200px;
+    width: 200px;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    margin: 10px auto;
+    background-size: cover;
+}
+.cover-playing{
+    -webkit-animation: gun 8s linear 0s infinite normal;
+    -o-animation: gun 8s linear 0s infinite normal;
+    animation: gun 8s linear 0s infinite normal;
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
+@keyframes gun {
+    0%{
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+
+    }
+}

@@ -8,91 +8,17 @@
     <meta charset="UTF-8">
     <title>播放器测试</title>
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
-    <style>
-        .process-wrapper{
-            height:2px;
-            background-color: #9d9d9d;
-            position: relative;
-            width: 80%;
-            margin: 0 auto;
-            cursor: pointer;
-        }
-        .process-inner{
-            height:2px;
-            background-color: #3f3f3f;
-            width: 0;
-            transition-timing-function: linear;
-            -webkit-transition-timing-function: linear
-            transition: width 0.5s;
-            -webkit-transition: width 0.5s;
-            position: relative;
-        }
-        .process-number{
-            font-size: 50px;
-        }
-        .process-inner .process-pointer{
-            content:"";
-            width:5px;
-            height: 5px;
-            background-color: #000000;
-            position: absolute;
-            right:0;
-            top:-50%;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-        }
-        .process-p{
-            text-align: center;
-        }
-        #process-minute{
-            font-size: 50px;
-        }
-        #process-second{
-            font-size: 40px;
-        }
-        #process-milsecond{
-            font-size: 25px;
-            color:gray;
-        }
-        .play-ctrl{
-            text-align: center;
-            padding-top: 40px;
-        }
-        .song-meta{
-            text-align:center;
-            line-height: 2;
-        }
-        .title{
-            font-size: 35px;
-        }
-        .title:first-letter{
-            font-size: 60px;
-        }
-        .subtitle{
-            font-size: 10px;
-            color:gray;
-        }
-        .artist{
-            font-size:25px;
-
-        }
-        .artist:first-letter{
-            font-size:50px;
-        }
-        #ctrl-play-pause{
-            font-size: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/css.css"/>
 </head>
 <body>
-<audio src="http://m2.music.126.net/y8o9RRUthuBtpzXPeb5f5g==/7953867117423236.mp3" id="main-player"></audio>
+<audio  id="main-player"></audio>
 
 <p class="process-p"><span id="process-minute" class="process-number"></span>:<span id="process-second" class="process-number"></span> &nbsp;&nbsp;&nbsp;<span id="process-milsecond" class="process-number"></span></p>
 <div class="process-wrapper"><div class="process-inner"><div class="process-pointer"></div></div></div>
 <div class="play-ctrl">
     <i id="ctrl-play-pause" >正在加载</i>
 </div>
+<div class="cover cover-playing"></div>
 <div class="song-meta">
     <div class="title"></div>
     <div class="subtitle"></div>
