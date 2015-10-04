@@ -187,7 +187,7 @@ window.onload=function(){
 
     processMilsecond.innerHTML="00";
     processSecond.innerHTML="00";
-    processMinute.innerHTML="00";
+    processMinute.innerHTML="0";
 
     cdp.oncanplay= function () {
         playPauseBtn.innerHTML="";
@@ -204,9 +204,9 @@ window.onload=function(){
         processInner.style.width=((cdp.currentTime/cdp.duration)*100)+"%";
     };
     setInterval(function () {
-        processMilsecond.innerHTML=(cdp.currentTime.toFixed(2) * 100 % 100) < 10 ? "0"+(cdp.currentTime * 100 % 100).toFixed(0) :(cdp.currentTime * 100 % 100).toFixed(0);
+        processMilsecond.innerHTML=cdp.currentTime.toFixed(1) * 10 % 10 ;
 
-    },50);
+    },100);
     processWrapper.onclick= function (e) {
         console.log(e.offsetX/processWrapper.offsetWidth*cdp.duration);
         cdp.currentTime=e.offsetX/processWrapper.offsetWidth*cdp.duration;
