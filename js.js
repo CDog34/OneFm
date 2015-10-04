@@ -188,7 +188,12 @@ window.onload=function(){
     processMinute.innerHTML="00";
 
     cdp.oncanplay= function () {
-        playPauseBtn.disabled=false;
+        playPauseBtn.innerHTML="";
+        if (!cdp.paused){
+            playPauseBtn.className="fa fa-pause";
+        }else{
+            playPauseBtn.className="fa fa-play";
+        }
 
     };
     cdp.ontimeupdate= function (e) {
