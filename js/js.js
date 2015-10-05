@@ -119,7 +119,7 @@ $cdfm.newSong=function(){
     if ($cdfm.vData.songs[$cdfm.curPlaying].alias[0]){
         $cdfm.subTitle.innerHTML=$cdfm.vData.songs[$cdfm.curPlaying].alias[0];
     }else{
-        $cdfm.subTitle.innerHTML="";
+        $cdfm.subTitle.innerHTML="ヒトコロ-载入中";
         (function(){
             console.log("次の曲が始まるです")
             $cdfm.hktSrc=document.createElement('script');
