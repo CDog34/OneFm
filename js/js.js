@@ -80,6 +80,7 @@ $cdfm.newSong=function(){
     $cdfm.processMilsecond.innerHTML="00";
     $cdfm.processSecond.innerHTML="00";
     $cdfm.processMinute.innerHTML="0";
+    $cdfm.changeTitle($cdfm.title.innerHTML);
 
 };
 $cdfm.ready2Play=function(){
@@ -113,5 +114,10 @@ $cdfm.playPause=function (e) {
     }
 
 };
+$cdfm.changeTitle=function(newTitle){
+    var t_array=document.title.split("|");
+    t_array[1]=newTitle;
+    document.title=t_array.join("|");
+}
 
 
