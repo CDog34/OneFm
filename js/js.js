@@ -8,7 +8,6 @@ $cdfm.playPauseBtn=document.getElementById("ctrl-play-pause");
 $cdfm.pauseBtn=document.getElementById("ctrl-pause");
 $cdfm.processMinute=document.getElementById("process-minute");
 $cdfm.processSecond=document.getElementById("process-second");
-$cdfm.processMilsecond=document.getElementById("process-milsecond");
 $cdfm.processInner=document.getElementsByClassName("process-inner")[0];
 $cdfm.processWrapper=document.getElementsByClassName("process-wrapper")[0];
 $cdfm.title=document.getElementsByClassName("title")[0];
@@ -41,11 +40,10 @@ window.onload=function(){
     $cdfm.cdp.oncanplaythrough=$cdfm.ready2Play;
 
     //$cdfm.cdp.ontimeupdate=$cdfm.updateTime;
-    setInterval(function () {
-        $cdfm.processMilsecond.innerHTML=$cdfm.cdp.currentTime.toFixed(1) * 10 % 10 ;
-        $cdfm.updateTime();
 
-    },100);
+
+    $cdfm.cdp.ontimeupdate=$cdfm.updateTime;
+
     $cdfm.processWrapper.onclick=$cdfm.fly;
     $cdfm.playPauseBtn.disabled=true;
 
@@ -128,7 +126,6 @@ $cdfm.newSong=function(){
     $cdfm.cdp.load();
     $cdfm.playPauseBtn.className="fa fa-play";
 
-    $cdfm.processMilsecond.innerHTML="00";
     $cdfm.processSecond.innerHTML="00";
     $cdfm.processMinute.innerHTML="0";
     $cdfm.changeTitle($cdfm.title.innerHTML);
