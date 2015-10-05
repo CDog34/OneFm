@@ -125,9 +125,6 @@ $cdfm.newSong=function(){
     $cdfm.coverImg.src=$cdfm.vData.songs[$cdfm.curPlaying].album.picUrl;
     $cdfm.cdp.load();
     $cdfm.playPauseBtn.className="fa fa-play";
-
-    $cdfm.processSecond.innerHTML="00";
-    $cdfm.processMinute.innerHTML="0";
     $cdfm.changeTitle($cdfm.title.innerHTML);
     $cdfm.playPause(true);
 
