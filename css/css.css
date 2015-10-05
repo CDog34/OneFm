@@ -61,7 +61,7 @@ transition: width 0.5s;
 }
 .song-meta{
     text-align:center;
-    line-height: 2;
+    line-height: 1.7;
 }
 .title{
     font-size: 35px;
