@@ -120,11 +120,13 @@ transition: width 0.5s;
     text-align: center;
     font-size: 12px;
     color: #8E8C8C;
+    margin:20px 0;
 }
 .copyright a{
     color: #5D5D5D;
     text-decoration: none;
     border-bottom: #5d5d5d 1px dotted;
+
 }
 .highlight{
     color: #ff776b;
