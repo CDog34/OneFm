@@ -33,9 +33,10 @@ window.onload=function(){
 
     $cdfm.cdp.oncanplay=$cdfm.ready2Play;
 
-    $cdfm.cdp.ontimeupdate=$cdfm.updateTime;
+    //$cdfm.cdp.ontimeupdate=$cdfm.updateTime;
     setInterval(function () {
         $cdfm.processMilsecond.innerHTML=$cdfm.cdp.currentTime.toFixed(1) * 10 % 10 ;
+        $cdfm.updateTime();
 
     },100);
     $cdfm.processWrapper.onclick=$cdfm.fly;
