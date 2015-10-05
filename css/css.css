@@ -89,9 +89,9 @@ transition: width 0.5s;
     background-size: cover;
 }
 .cover-playing{
-    -webkit-animation: gun 8s linear 0s infinite normal;
-    -o-animation: gun 8s linear 0s infinite normal;
-    animation: gun 8s linear 0s infinite normal;
+    -webkit-animation: gun 10s linear 0s infinite normal;
+    -o-animation: gun 10s linear 0s infinite normal;
+    animation: gun 10s linear 0s infinite normal;
     -webkit-animation-play-state: paused;
     -moz-animation-play-state: paused;
     -o-animation-play-state: paused;
