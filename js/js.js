@@ -23,6 +23,7 @@ $cdfm.oldHash="/";
 $cdfm.curPlaying=0;
 $cdfm.forwordBtn=document.getElementById("ctrl-fwd");
 $cdfm.backwordBtn=document.getElementById("ctrl-bwd");
+$cdfm.hktSrc="";
 
 
 
@@ -119,6 +120,12 @@ $cdfm.newSong=function(){
         $cdfm.subTitle.innerHTML=$cdfm.vData.songs[$cdfm.curPlaying].alias[0];
     }else{
         $cdfm.subTitle.innerHTML="";
+        (function(){
+            console.log("次の曲が始まるです")
+            $cdfm.hktSrc=document.createElement('script');
+            $cdfm.hktSrc.setAttribute('src','http://api.hitokoto.us/rand?encode=jsc&fun=showHitokoto');
+            document.body.appendChild($cdfm.hktSrc);
+        })();
     }
     $cdfm.artist.innerHTML=$cdfm.vData.songs[$cdfm.curPlaying].artists[0].name;
     $cdfm.cover.style.backgroundImage="url("+$cdfm.vData.songs[$cdfm.curPlaying].album.picUrl+")";
@@ -127,6 +134,9 @@ $cdfm.newSong=function(){
     $cdfm.playPauseBtn.className="fa fa-play";
     $cdfm.changeTitle($cdfm.title.innerHTML);
     $cdfm.playPause(true);
+
+
+
 
 };
 $cdfm.ready2Play=function(){
@@ -187,6 +197,13 @@ $cdfm.backword=function(){
         $cdfm.newSong();
     }
 
+}
+
+function showHitokoto(hkt){
+    if (!$cdfm.vData.songs[$cdfm.curPlaying].alias[0]){
+        $cdfm.subTitle.innerHTML=hkt.hitokoto;
+    }
+    document.getElementsByTagName("body")[0].removeChild($cdfm.hktSrc);
 }
 
 
