@@ -47,7 +47,7 @@ window.onload=function(){
 };
 $cdfm.hashChange=function () {
     $cdfm.playPause(false);
-    $cdfm.hash=location.hash.substr(1).split("/");
+    $cdfm.hash=location.hash.substr(2).split("/");
     if ($cdfm.hash[0]=="song"){
         $cd.ajax({
             url:"http://m163.proxy.izhai.net/api/song/detail/",
