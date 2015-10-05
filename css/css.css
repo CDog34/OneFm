@@ -91,6 +91,7 @@ transition: width 0.5s;
     border-radius: 100px;
     margin: 10px auto;
     background-size: cover;
+    box-shadow: -2px -2px 15px 0px black;
 }
 .cover-playing{
     -webkit-animation: gun 10s linear 0s infinite normal;
