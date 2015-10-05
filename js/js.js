@@ -108,7 +108,7 @@ $cdfm.hashChange=function () {
                 }
             })
         }else{
-            location.hash="/list/89768862";
+            location.hash="/list/85043989";
         }
     }
 
