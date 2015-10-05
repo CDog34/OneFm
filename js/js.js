@@ -17,7 +17,7 @@ $cdfm.artist=document.getElementsByClassName("artist")[0];
 $cdfm.cover=document.getElementsByClassName("cover")[0];
 $cdfm.vData={};
 $cdfm.hash=[];
-
+$cdfm.coverImg=document.getElementById("cover-img");
 
 
 window.onload=function(){
@@ -74,6 +74,7 @@ $cdfm.newSong=function(){
     }
     $cdfm.artist.innerHTML=$cdfm.vData.songs[0].artists[0].name;
     $cdfm.cover.style.backgroundImage="url("+$cdfm.vData.songs[0].album.picUrl+")";
+    $cdfm.coverImg.src=$cdfm.vData.songs[0].album.picUrl;
     $cdfm.cdp.load();
     $cdfm.playPauseBtn.className="fa fa-play";
 
