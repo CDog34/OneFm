@@ -49,7 +49,7 @@ transition: width 0.5s;
     font-size: 50px;
 }
 #process-second{
-    font-size: 40px;
+    font-size: 35px;
 }
 #process-milsecond{
     font-size: 25px;
@@ -81,7 +81,12 @@ transition: width 0.5s;
     font-size:50px;
 }
 #ctrl-play-pause{
-    font-size: 30px;
+    font-size: 40px;
+}
+.ctrl-icon{
+    font-size:25px;
+    margin:0 50px;
+    width:20px;
 }
 .cover{
     height: 200px;
