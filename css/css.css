@@ -116,6 +116,9 @@ transition: width 0.5s;
 .cloud-song-id:focus{
     outline: none;
 }
+#cover-img{
+    display:none;
+}
 
 
 
