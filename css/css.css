@@ -78,6 +78,19 @@ transition: width 0.5s;
     max-width: 260px;
     margin: 0 auto;
 }
+.lrc{
+    text-align: center;
+    padding-top: 10px;
+    color: #464646;
+    font-size: 18px;
+    height: 30px;
+    max-width: 300px;
+    margin: 0 auto;
+    line-height: 1.1;
+}
+.lrc:first-letter{
+    font-size:30px;
+}
 .artist{
     font-size:25px;
 
@@ -102,6 +115,8 @@ transition: width 0.5s;
     margin: 10px auto;
     background-size: cover;
     box-shadow: -2px -2px 15px 0px black;
+    background-position: center;
+
 }
 .cover-playing{
     -webkit-animation: gun 10s linear 0s infinite normal;

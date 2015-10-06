@@ -24,6 +24,9 @@ $cdfm.curPlaying=0;
 $cdfm.forwordBtn=document.getElementById("ctrl-fwd");
 $cdfm.backwordBtn=document.getElementById("ctrl-bwd");
 $cdfm.hktSrc="";
+$cdfm.lrcSrc=[];
+$cdfm.curLrc=0;
+$cdfm.lrcDom=document.getElementsByClassName("lrc")[0];
 
 
 
@@ -132,6 +135,9 @@ $cdfm.newSong=function(){
     $cdfm.coverImg.src=$cdfm.vData.songs[$cdfm.curPlaying].album.picUrl;
     $cdfm.cdp.load();
     $cdfm.playPauseBtn.className="fa fa-play";
+    $cdfm.curLrc=0;
+    $cdfm.getLrc();
+    $cdfm.lrcDom.innerHTML="";
     $cdfm.changeTitle($cdfm.title.innerHTML);
     $cdfm.playPause(true);
 
@@ -153,9 +159,11 @@ $cdfm.updateTime=function (e) {
     $cdfm.processMinute.innerHTML=($cdfm.cdp.currentTime/60).toFixed(0) <10 ? "0"+($cdfm.cdp.currentTime/60).toFixed(0) : ($cdfm.cdp.currentTime/60).toFixed(0);
     $cdfm.processSecond.innerHTML=($cdfm.cdp.currentTime % 60).toFixed(0) < 10 ? "0"+($cdfm.cdp.currentTime % 60).toFixed(0) : ($cdfm.cdp.currentTime % 60).toFixed(0);
     $cdfm.processInner.style.width=(($cdfm.cdp.currentTime/$cdfm.cdp.duration)*100)+"%";
+    $cdfm.showLrc();
 };
 $cdfm.fly=function (e) {
     $cdfm.cdp.currentTime=e.offsetX/$cdfm.processWrapper.offsetWidth*$cdfm.cdp.duration;
+    $cdfm.curLrc=0;
 };
 $cdfm.playPause=function (e) {
     if ($cdfm.cdp.paused&&e){
@@ -198,6 +206,57 @@ $cdfm.backword=function(){
     }
 
 }
+
+$cdfm.getLrc=function(){
+    $cd.ajax({
+        url:"http://m163.proxy.izhai.net/api/song/lyric",
+        data:{
+            id:$cdfm.vData.songs[$cdfm.curPlaying].id,
+            lv:"-1"
+        },
+        success:function(txt,xml){
+            var json=JSON.parse(txt);
+            $cdfm.lrcSrc=[];
+            if (json.code==200&& json.lrc){
+
+                var lrcTmp=json.lrc.lyric.split("\n");
+                for (var i in lrcTmp){
+                    var reg=/\[([0-9]+):([0-9]+)\.([0-9]+)\](.*)/g.exec(lrcTmp[i]);
+                    try{
+                        $cdfm.lrcSrc.push([
+                            parseFloat((reg[1])*60+parseFloat(reg[2])+"."+reg[3]),
+                            reg[4]
+                        ])
+                    }catch(err){
+                        continue;
+                    }
+
+                }
+            }
+
+        }
+    })
+}
+
+$cdfm.showLrc= function () {
+    if ($cdfm.lrcSrc.length>0){
+        while($cdfm.lrcSrc[$cdfm.curLrc][0]<$cdfm.cdp.currentTime){
+            $cdfm.curLrc++;
+        }
+        try{
+            if ($cdfm.lrcDom.innerHTML!=$cdfm.lrcSrc[$cdfm.curLrc-1][1]){
+                $cdfm.lrcDom.innerHTML=$cdfm.lrcSrc[$cdfm.curLrc-1][1];
+            }
+        }catch(err){
+            //Do
+        }
+
+    }else{
+        if ($cdfm.lrcDom.innerHtml!="尽在不言中"){
+            $cdfm.lrcDom.innerHTML="尽在不言中"
+        }
+    }
+};
 
 function showHitokoto(hkt){
     if (!$cdfm.vData.songs[$cdfm.curPlaying].alias[0]){
