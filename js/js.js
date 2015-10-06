@@ -119,11 +119,14 @@ $cdfm.hashChange=function () {
 $cdfm.newSong=function(){
     console.log("Preparing a new song");
     $cdfm.cdp.src=$cdfm.vData.songs[$cdfm.curPlaying].mp3Url;
-    $cdfm.title.innerHTML=$cdfm.vData.songs[$cdfm.curPlaying].name;
+    //$cdfm.title.innerHTML=$cdfm.vData.songs[$cdfm.curPlaying].name;
+    $cdfm.changeInnerHTML($cdfm.title,$cdfm.vData.songs[$cdfm.curPlaying].name);
     if ($cdfm.vData.songs[$cdfm.curPlaying].alias[0]){
-        $cdfm.subTitle.innerHTML=$cdfm.vData.songs[$cdfm.curPlaying].alias[0];
+        $cdfm.changeInnerHTML($cdfm.subTitle,$cdfm.vData.songs[$cdfm.curPlaying].alias[0]);
+        //$cdfm.subTitle.innerHTML=$cdfm.vData.songs[$cdfm.curPlaying].alias[0];
     }else{
-        $cdfm.subTitle.innerHTML="ヒトコロ-载入中";
+        //$cdfm.changeInnerHTML($cdfm.subTitle,"ヒトコロ-载入中");
+        //$cdfm.subTitle.innerHTML="ヒトコロ-载入中";
         (function(){
             console.log("次の曲が始まるです")
             $cdfm.hktSrc=document.createElement('script');
@@ -131,7 +134,8 @@ $cdfm.newSong=function(){
             document.body.appendChild($cdfm.hktSrc);
         })();
     }
-    $cdfm.artist.innerHTML=$cdfm.vData.songs[$cdfm.curPlaying].artists[0].name;
+    $cdfm.changeInnerHTML($cdfm.artist,$cdfm.vData.songs[$cdfm.curPlaying].artists[0].name);
+    //$cdfm.artist.innerHTML=$cdfm.vData.songs[$cdfm.curPlaying].artists[0].name;
     $cdfm.cover.style.backgroundImage="url("+$cdfm.vData.songs[$cdfm.curPlaying].album.picUrl+")";
     $cdfm.coverImg.src=$cdfm.vData.songs[$cdfm.curPlaying].album.picUrl;
     $cdfm.cdp.load();
@@ -254,12 +258,13 @@ $cdfm.getLrc=function(){
 $cdfm.showLrc= function () {
     if ($cdfm.lrcSrc.length>0){
         try{
-            while($cdfm.lrcSrc[$cdfm.curLrc][0]<$cdfm.cdp.currentTime){
+            while($cdfm.lrcSrc[$cdfm.curLrc][0]-0.5<$cdfm.cdp.currentTime){
                 $cdfm.curLrc++;
             }
 
             if ($cdfm.lrcDom.innerHTML!=$cdfm.lrcSrc[$cdfm.curLrc-1][1]){
-                $cdfm.lrcDom.innerHTML=$cdfm.lrcSrc[$cdfm.curLrc-1][1];
+                $cdfm.changeInnerHTML($cdfm.lrcDom,$cdfm.lrcSrc[$cdfm.curLrc-1][1]);
+
             }
         }catch(err){
             //Do
@@ -267,14 +272,13 @@ $cdfm.showLrc= function () {
 
     }else{
         if ($cdfm.lrcDom.innerHtml!="尽在不言中"){
-            $cdfm.lrcDom.innerHTML="尽在不言中"
+            $cdfm.changeInnerHTML($cdfm.lrcDom,"尽在不言中");
         }
     }
 };
 
 $cdfm.changeColor=function(rgb){
     var colorTmp=rgb.substring(4,rgb.length-1).split(",");
-    console.log(colorTmp);
     for (var i in $cdfm.colorChangeDoms){
         try{
             $cdfm.colorChangeDoms[i].style.color="rgb("+(255-parseInt(colorTmp[0]))+","+(255-parseInt(colorTmp[1]))+","+(255-parseInt(colorTmp[2]))+")";
@@ -285,10 +289,17 @@ $cdfm.changeColor=function(rgb){
                //$cdfm.colorChangeDoms[i].style.backgroundColor="rgb("+(255-parseInt(colorTmp[0]))+","+(255-parseInt(colorTmp[1]))+","+(255-parseInt(colorTmp[2]))+")";
     }
 }
+$cdfm.changeInnerHTML=function(dom,html){
+    dom.style.opacity=0;
+    setTimeout(function(){
+        dom.innerHTML=html;
+        dom.style.opacity=1;
+    },500);
+}
 
 function showHitokoto(hkt){
     if (!$cdfm.vData.songs[$cdfm.curPlaying].alias[0]){
-        $cdfm.subTitle.innerHTML=hkt.hitokoto;
+        $cdfm.changeInnerHTML($cdfm.subTitle,hkt.hitokoto);
     }
     try{
         document.getElementsByTagName("body")[0].removeChild($cdfm.hktSrc);

@@ -9,6 +9,9 @@ body,html{
 i{
     cursor: default;
 }
+.container{
+    padding-top:40px;
+}
 body{
     background-color: rgb(199, 199, 199);
     -webkit-transition: background-color 1s;
@@ -45,6 +48,13 @@ transition: width 0.5s;
 }
 .process-number{
     font-size: 50px;
+}
+.html-change{
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    transition: opacity 0.5s;
 }
 .process-inner .process-pointer{
     content:"";
