@@ -133,11 +133,13 @@ transition: width 0.5s;
 }
 #ctrl-play-pause{
     font-size: 40px;
+    margin: 0;
+    width: 50px;
+    text-marign:center;
 }
 .ctrl-icon{
     font-size:25px;
     margin:0 50px;
-    width:20px;
 }
 .cover{
     height: 200px;

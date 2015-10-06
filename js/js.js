@@ -143,7 +143,7 @@ $cdfm.newSong=function(){
     $cdfm.lrcDom.innerHTML="";
     $cdfm.changeTitle($cdfm.title.innerHTML);
     $cdfm.playPause(true);
-    RGBaster.colors($cdfm.vData.songs[$cdfm.curPlaying].album.picUrl, {
+    RGBaster.colors(document.getElementById("cover-img"), {
         exclude: [ 'rgb(255,255,255)','rgb(0,0,0)' ],
         success: function(payload) {
 
