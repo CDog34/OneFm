@@ -68,6 +68,8 @@ transition: width 0.5s;
 }
 .title{
     font-size: 35px;
+    height:102px;
+    overflow: hidden;
 }
 .title:first-letter{
     font-size: 60px;
@@ -94,6 +96,8 @@ transition: width 0.5s;
 }
 .artist{
     font-size:25px;
+    height:85px;
+    overflow: hidden;
 
 }
 .artist:first-letter{
