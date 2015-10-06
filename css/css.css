@@ -77,6 +77,7 @@ transition: width 0.5s;
     color:gray;
     max-width: 260px;
     margin: 0 auto;
+    height: 40px;
 }
 .lrc{
     text-align: center;
