@@ -240,10 +240,11 @@ $cdfm.getLrc=function(){
 
 $cdfm.showLrc= function () {
     if ($cdfm.lrcSrc.length>0){
-        while($cdfm.lrcSrc[$cdfm.curLrc][0]<$cdfm.cdp.currentTime){
-            $cdfm.curLrc++;
-        }
         try{
+            while($cdfm.lrcSrc[$cdfm.curLrc][0]<$cdfm.cdp.currentTime){
+                $cdfm.curLrc++;
+            }
+
             if ($cdfm.lrcDom.innerHTML!=$cdfm.lrcSrc[$cdfm.curLrc-1][1]){
                 $cdfm.lrcDom.innerHTML=$cdfm.lrcSrc[$cdfm.curLrc-1][1];
             }
