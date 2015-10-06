@@ -75,6 +75,8 @@ transition: width 0.5s;
 .subtitle{
     font-size: 10px;
     color:gray;
+    max-width: 260px;
+    margin: 0 auto;
 }
 .artist{
     font-size:25px;
