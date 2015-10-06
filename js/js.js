@@ -263,7 +263,12 @@ function showHitokoto(hkt){
     if (!$cdfm.vData.songs[$cdfm.curPlaying].alias[0]){
         $cdfm.subTitle.innerHTML=hkt.hitokoto;
     }
-    document.getElementsByTagName("body")[0].removeChild($cdfm.hktSrc);
+    try{
+        document.getElementsByTagName("body")[0].removeChild($cdfm.hktSrc);
+    }catch(err){
+        //Do
+    }
+
 }
 
 
