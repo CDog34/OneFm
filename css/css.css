@@ -11,6 +11,18 @@ i{
 }
 body{
     background-color: rgb(199, 199, 199);
+    -webkit-transition: background-color 1s;
+    -moz-transition: background-color 1s;
+    -ms-transition: background-color 1s;
+    -o-transition: background-color 1s;
+    transition: background-color 1s;
+}
+.color-change{
+    -webkit-transition: color 1s;
+    -moz-transition: color 1s;
+    -ms-transition: color 1s;
+    -o-transition: color 1s;
+    transition: color 1s;
 }
 .process-wrapper{
     height:2px;
@@ -81,6 +93,11 @@ transition: width 0.5s;
     max-width: 260px;
     margin: 0 auto;
     height: 40px;
+    -webkit-transition: content 1s;
+    -moz-transition: content 1s;
+    -ms-transition: content 1s;
+    -o-transition: content 1s;
+    transition: content 1s;
 }
 .lrc{
     text-align: center;

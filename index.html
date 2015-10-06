@@ -17,31 +17,35 @@
 <div class="wx_logo" style="display:none;">
     <img  alt="" id="cover-img" />
 </div>
+<div class="container">
+    <audio  id="main-player"></audio>
 
-<audio  id="main-player"></audio>
+    <p class="process-p color-change"><span id="process-minute" class="process-number color-change">00</span>:<span id="process-second" class="process-number color-change">00</span></p>
+    <div class="process-wrapper"><div class="process-inner"><div class="process-pointer color-change"></div></div></div>
 
-<p class="process-p"><span id="process-minute" class="process-number">00</span>:<span id="process-second" class="process-number">00</span></p>
-<div class="process-wrapper"><div class="process-inner"><div class="process-pointer"></div></div></div>
+    <div class="cover cover-playing"></div>
+    <div class="lrc color-change">在这里显示歌词</div>
+    <div class="play-ctrl">
+        <i class="fa fa-backward ctrl-icon color-change" id="ctrl-bwd"></i>
+        <i id="ctrl-play-pause" class="ctrl-icon color-change fa" ></i>
+        <i class="fa fa-forward color-change ctrl-icon" id="ctrl-fwd" ></i>
+    </div>
+    <div class="song-meta">
+        <div class="title color-change"></div>
+        <div class="subtitle"></div>
+        <div class="artist color-change"></div>
+    </div>
+    <div class="inputs">
+        <input type="text" placeholder="云音乐ID" class="cloud-song-id" id="id-in"/><i class="fa fa-search color-change" id="so"></i>
+    </div>
+    <div class="copyright">
+        &copy;&nbsp;2015&nbsp;<a href="http://cdog.me" target="_blank">CDog</a>&nbsp;|&nbsp;Pure Html&amp;Js, Pure Love <i class="fa fa-heart highlight"></i>. ミサカ大好き
+    </div>
+</div>
 
-<div class="cover cover-playing"></div>
-<div class="lrc">在这里显示歌词</div>
-<div class="play-ctrl">
-    <i class="fa fa-backward ctrl-icon" id="ctrl-bwd"></i>
-    <i id="ctrl-play-pause" class="ctrl-icon" ></i>
-    <i class="fa fa-forward ctrl-icon" id="ctrl-fwd" ></i>
-</div>
-<div class="song-meta">
-    <div class="title"></div>
-    <div class="subtitle"></div>
-    <div class="artist"></div>
-</div>
-<div class="inputs">
-    <input type="text" placeholder="云音乐ID" class="cloud-song-id" id="id-in"/><i class="fa fa-search" id="so"></i>
-</div>
-<div class="copyright">
-    &copy;&nbsp;2015&nbsp;<a href="http://cdog.me" target="_blank">CDog</a>&nbsp;|&nbsp;Pure Html&amp;Js, Pure Love <i class="fa fa-heart highlight"></i>. ミサカ大好き
-</div>
+
 <script src="js/tools.js"></script>
+<script src="js/rgbaster.js"></script>
 <script src="js/js.js" ></script>
 </body>
 </html>

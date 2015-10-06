@@ -27,6 +27,7 @@ $cdfm.hktSrc="";
 $cdfm.lrcSrc=[];
 $cdfm.curLrc=0;
 $cdfm.lrcDom=document.getElementsByClassName("lrc")[0];
+$cdfm.colorChangeDoms=document.getElementsByClassName("color-change");
 
 
 
@@ -134,12 +135,20 @@ $cdfm.newSong=function(){
     $cdfm.cover.style.backgroundImage="url("+$cdfm.vData.songs[$cdfm.curPlaying].album.picUrl+")";
     $cdfm.coverImg.src=$cdfm.vData.songs[$cdfm.curPlaying].album.picUrl;
     $cdfm.cdp.load();
-    $cdfm.playPauseBtn.className="fa fa-play";
     $cdfm.curLrc=0;
     $cdfm.getLrc();
     $cdfm.lrcDom.innerHTML="";
     $cdfm.changeTitle($cdfm.title.innerHTML);
     $cdfm.playPause(true);
+    RGBaster.colors($cdfm.vData.songs[$cdfm.curPlaying].album.picUrl, {
+        exclude: [ 'rgb(255,255,255)','rgb(0,0,0)' ],
+        success: function(payload) {
+
+            // You now have the payload.
+            document.getElementsByTagName("body")[0].style.backgroundColor = payload.dominant;
+            $cdfm.changeColor(payload.dominant);
+        }
+    });
 
 
 
@@ -150,9 +159,11 @@ $cdfm.ready2Play=function(){
     console.log("Ready to Play √");
     $cdfm.playPauseBtn.innerHTML="";
     if (!$cdfm.cdp.paused){
-        $cdfm.playPauseBtn.className="fa fa-pause";
+        $cdfm.playPauseBtn.classList.add("fa-pause");
+        $cdfm.playPauseBtn.classList.remove("fa-play");
     }else{
-        $cdfm.playPauseBtn.className="fa fa-play";
+        $cdfm.playPauseBtn.classList.add("fa-play");
+        $cdfm.playPauseBtn.classList.remove("fa-pause");
     }
 };
 $cdfm.updateTime=function (e) {
@@ -169,11 +180,13 @@ $cdfm.playPause=function (e) {
     if ($cdfm.cdp.paused&&e){
         $cdfm.cdp.play();
         $cdfm.cover.style.animationPlayState="running";
-        $cdfm.playPauseBtn.className="fa fa-pause";
+        $cdfm.playPauseBtn.classList.add("fa-pause");
+        $cdfm.playPauseBtn.classList.remove("fa-play");
     }else{
         $cdfm.cdp.pause();
         $cdfm.cover.style.animationPlayState="paused";
-        $cdfm.playPauseBtn.className="fa fa-play";
+        $cdfm.playPauseBtn.classList.add("fa-play");
+        $cdfm.playPauseBtn.classList.remove("fa-pause");
     }
 
 };
@@ -258,6 +271,20 @@ $cdfm.showLrc= function () {
         }
     }
 };
+
+$cdfm.changeColor=function(rgb){
+    var colorTmp=rgb.substring(4,rgb.length-1).split(",");
+    console.log(colorTmp);
+    for (var i in $cdfm.colorChangeDoms){
+        try{
+            $cdfm.colorChangeDoms[i].style.color="rgb("+(255-parseInt(colorTmp[0]))+","+(255-parseInt(colorTmp[1]))+","+(255-parseInt(colorTmp[2]))+")";
+
+        }catch(err){
+            //console.log("err:",$cdfm.colorChangeDoms[i]);
+        }
+               //$cdfm.colorChangeDoms[i].style.backgroundColor="rgb("+(255-parseInt(colorTmp[0]))+","+(255-parseInt(colorTmp[1]))+","+(255-parseInt(colorTmp[2]))+")";
+    }
+}
 
 function showHitokoto(hkt){
     if (!$cdfm.vData.songs[$cdfm.curPlaying].alias[0]){
