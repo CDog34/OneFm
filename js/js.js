@@ -63,7 +63,6 @@ window.onload=function(){
 };
 $cdfm.hashChange=function () {
     $cdfm.hash=location.hash.substr(2).split("/");
-    console.log($cdfm.oldHash,location.hash);
     if($cdfm.oldHash!=location.hash){
         $cdfm.playPause(false);
 
@@ -271,8 +270,8 @@ $cdfm.showLrc= function () {
         }
 
     }else{
-        if ($cdfm.lrcDom.innerHtml!="尽在不言中"){
-            $cdfm.changeInnerHTML($cdfm.lrcDom,"尽在不言中");
+        if ($cdfm.lrcDom.innerHTML!="尽在不言中"){
+            $cdfm.lrcDom.innerHTML="尽在不言中";
         }
     }
 };
