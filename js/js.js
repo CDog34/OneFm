@@ -143,7 +143,7 @@ $cdfm.newSong=function(){
     $cdfm.lrcDom.innerHTML="";
     $cdfm.changeTitle($cdfm.title.innerHTML);
     $cdfm.playPause(true);
-    RGBaster.colors(document.getElementById("cover-img"), {
+    RGBaster.colors($cdfm.vData.songs[$cdfm.curPlaying].album.picUrl.replace(/music\.126\.net/g,"m163.proxy.izhai.net"), {
         exclude: [ 'rgb(255,255,255)','rgb(0,0,0)' ],
         success: function(payload) {
 
