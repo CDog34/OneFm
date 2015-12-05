@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="true">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/css.css"/>
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=51469949" charset="UTF-8"></script>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 
 </head>
 <body>
@@ -31,11 +32,18 @@
         <i id="ctrl-play-pause" class="ctrl-icon color-change fa" ></i>
         <i class="fa fa-forward color-change ctrl-icon" id="ctrl-fwd" ></i>
     </div>
+    <div class="share">
+        <wb:share-button appkey="1206536024" addition="simple" type="button" language="zh_cn" ralateUid="2836041855" default_text="我在Fm.Cdog.me发现了一首歌，想分享给大家~~"></wb:share-button>
+
+    </div>
+
     <div class="song-meta">
         <div class="title color-change html-change"></div>
         <div class="subtitle html-change"></div>
         <div class="artist color-change html-change"></div>
     </div>
+
+
     <div class="inputs">
         <input type="text" placeholder="云音乐ID" class="cloud-song-id color-change" id="id-in"/><i class="fa fa-search color-change" id="so"></i>
     </div>
