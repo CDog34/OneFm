@@ -41,7 +41,7 @@ body{
     background-color: #3f3f3f;
     width: 0;
     transition-timing-function: linear;
-    -webkit-transition-timing-function: linear
+    -webkit-transition-timing-function: linear;
     transition: width 0.5s;
     -webkit-transition: width 0.5s;
     position: relative;
